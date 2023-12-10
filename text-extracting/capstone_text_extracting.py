@@ -43,7 +43,7 @@ def build_and_train_model(data, labels):
     return model, tokenizer
 
 
-image_folder_path = r'./images/'
+image_folder_path = os.path.join(os.path.dirname(__file__), "images")
 filenames = os.listdir(image_folder_path)
 
 for filename in filenames:
@@ -52,21 +52,17 @@ for filename in filenames:
         
         detected_text = read_image_and_extract_text(image_path)
 
-        
         translated_text = translate_to_indonesian(detected_text)
-
         
         data = [detected_text] * 1000  
         labels = [0] * 1000  
         model, tokenizer = build_and_train_model(data, labels)
-
     
         input_sequence = tokenizer.texts_to_sequences([detected_text])
         input_sequence = tf.keras.preprocessing.sequence.pad_sequences(input_sequence)
         prediction = model.predict(input_sequence)
         predicted_label = np.argmax(prediction)
-
-    
+   
         translated_label = "Bahasa Inggris" if predicted_label == 0 else "Bahasa Indonesia"
 
         print("Image:", filename)
