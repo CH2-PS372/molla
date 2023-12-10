@@ -66,9 +66,9 @@ while True:
 
     user_input = input("\nJawaban Anda: ")
 
-    if evaluate_user_input(user_input, original_sentence):
-        continue_or_exit = input("\nApakah Anda ingin melanjutkan? (y/n): ")
-        if continue_or_exit.lower() != 'y':
-            break
+    evaluate_user_input(user_input, original_sentence)
+    continue_or_exit = input("\nApakah Anda ingin melanjutkan? (y/n): ")
+    if continue_or_exit.lower() != 'y':
+        break
 
 print("Selesai. Terima kasih!")
