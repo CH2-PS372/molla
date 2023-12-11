@@ -6,7 +6,7 @@ from tensorflow.keras.preprocessing.text import Tokenizer
 dataset_path = 'dataUji.tsv'
 df = pd.read_csv(dataset_path, sep='\t', header=None, names=['num_eng', 'sent_eng', 'num_indo', 'sent_indo'])
 
-model_path = 'nama_model.h5'
+model_path = './nama_model.h5'
 model = load_model(model_path)
 
 tokenizer_eng = Tokenizer()
