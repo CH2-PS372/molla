@@ -29,7 +29,7 @@ def evaluate_user_input(user_input, original_sentence):
     user_input_lower = user_input.lower()
     original_sentence_lower = original_sentence.lower()
 
-    if user_input_lower == original_sentence_lower:
+    if user_input_lower ==  original_sentence_lower:
         print("Jawaban benar!")
         return True
     else:
