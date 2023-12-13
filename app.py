@@ -1,48 +1,70 @@
-import json
 import os
-from text_extracting import read_image_and_extract_text, translate_to_indonesian
-from flask import Flask, request, jsonify
-from sentence_h5 import get_random_question
+import uuid
+from flask import Flask, request, jsonify, abort
+from inference import get_random_question, create_shuffled_sentence, evaluate_user_input
 
 app = Flask(__name__)
 
-@app.route("/quiz", methods=["GET", "POST"])
+# Dictionary to store question IDs and their corresponding sentences
+question_data = {}
+
+def parameter_check():
+    try:
+        data = request.get_json()
+        language = data.get('language')
+        if language is None:
+            abort(400, description="Missing language parameter in request body")
+        return language
+    except Exception as e:
+        abort(400, description=str(e))
+
+@app.route("/quiz", methods=["GET"])
 def quiz():
     if request.method == "GET":
         try:
-            language = 'indonesia'
+            language = parameter_check()
             original_sentence, correct_translation = get_random_question(language)
+            shuffled_sentence = create_shuffled_sentence(original_sentence)
+            
+            # Generate a random question ID using uuid
+            question_id = str(uuid.uuid4())
+
+            # Store question ID and original sentence in the dictionary
+            question_data[question_id] = original_sentence
+
             response_data = {
+                'question_id': question_id,
                 'sentence': {
-                    'lang_eng': original_sentence,
-                    'lang_id': correct_translation
+                    'original_sentence': original_sentence,
+                    'correct_translation': correct_translation,
+                    'shuffled_sentence': shuffled_sentence
                 }
             }
             return jsonify(response_data)
         except Exception as e:
-            return jsonify({"error": str(e)})
+            return jsonify({"error": str(e)}), 500
 
-    return "OK"
+@app.route("/quiz", methods=["POST"])
+def evaluate():
+    try:
+        data = request.get_json()
+        question_id = data.get('question_id')
+        user_answer = data.get('user_answer')
 
-@app.route('/translate', methods = ["GET", "POST"])
-def translate():
-    if request.method == "GET":
-        # file = request.files.get('file')
-        # if file is None or file.filename == "":
-        #     return jsonify({"error": "no file"})
-        try:
-            image = "image1.png"
-            image_path = os.path.join('images', image)
-            extracted_text = read_image_and_extract_text(image_path)
-            translated_text = translate_to_indonesian(extracted_text)
-            response_data = {
-                "extracted_text": str(extracted_text),
-                "translated_text": str(translated_text)
-            }
-            return jsonify(response_data)
-        except Exception as e:
-            return jsonify({"error": str(e)})
-    return 'OK'
+        # Retrieve the original sentence for the given question ID
+        original_sentence = question_data.get(question_id)
+
+        if original_sentence is not None:
+            # Evaluate the user's answer
+            result = evaluate_user_input(user_answer, original_sentence)
+            question_data.pop(question_id)
+
+            return jsonify({"result": result})
+        else:
+            return jsonify({"error": f"Invalid question_id: {question_id}"}), 400
+
+    except Exception as e:
+        return jsonify({"error": str(e)}), 500
 
 if __name__ == "__main__":
-    app.run(host='0.0.0.0', port=3003)
+    app.run(host='0.0.0.0')
