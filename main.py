@@ -42,7 +42,6 @@ def quiz():
 
             response_data = {
                 'question_id': question_id,
-                'question_data': question_data,
                 'sentence': {
                     'original_sentence': original_sentence,
                     'correct_translation': correct_translation,
