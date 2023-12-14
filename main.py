@@ -8,13 +8,21 @@ app = Flask(__name__)
 # Dictionary to store question IDs and their corresponding sentences
 question_data = {}
 
-def parameter_check():
+def get_quiz_param():
     try:
-        data = request.get_json()
-        language = data.get('language')
+        language = request.args.get('language')
         if language is None:
-            abort(400, description="Missing language parameter in request body")
+            abort(400, description="Missing language parameter in request URL")
         return language
+    except Exception as e:
+        abort(400, description=str(e))
+
+def get_questions_param():
+    try:
+        question_id = request.args.get('question_id')
+        if question_id is None:
+            abort(400, description="Missing question_id parameter in request URL")
+        return question_id
     except Exception as e:
         abort(400, description=str(e))
 
@@ -22,7 +30,7 @@ def parameter_check():
 def quiz():
     if request.method == "GET":
         try:
-            language = parameter_check()
+            language = get_quiz_param()
             original_sentence, correct_translation = get_random_question(language)
             shuffled_sentence = create_shuffled_sentence(original_sentence)
             
@@ -34,6 +42,7 @@ def quiz():
 
             response_data = {
                 'question_id': question_id,
+                'question_data': question_data,
                 'sentence': {
                     'original_sentence': original_sentence,
                     'correct_translation': correct_translation,
@@ -63,6 +72,32 @@ def evaluate():
         else:
             return jsonify({"error": f"Invalid question_id: {question_id}"}), 400
 
+    except Exception as e:
+        return jsonify({"error": str(e)}), 500
+
+@app.route("/questions", methods=["GET"])
+def questions():
+    try:
+        response_data = {
+            "question_data": question_data
+        }
+        return jsonify(response_data)
+    except Exception as e:
+        return jsonify({"error": str(e)}), 500
+
+@app.route("/questions", methods=["DELETE"])
+def questions_delete():
+    try:
+        question_id = get_questions_param()
+        if question_id not in question_data:
+            return jsonify({"error": f"Invalid question_id: {question_id}"}), 400
+
+        question_data.pop(question_id)
+        response_data = {
+            "status": "deletion success",
+            "question_id": question_id
+        }
+        return jsonify(response_data)
     except Exception as e:
         return jsonify({"error": str(e)}), 500
 
