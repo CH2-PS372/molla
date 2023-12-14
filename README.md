@@ -28,7 +28,7 @@ Quiz
 ----
   Get uuid, kalimat bahasa inggris, bahasa indonesia, dan kalimat yang diacak.
 * **URL Params**  
-  None
+  Required: ```language = [string]``` 'indonesia/inggris'
 * **Data Params**  
   None
 * **Headers**  
