@@ -26,7 +26,8 @@ Supaya bisa run di vm ada yang beberapa code yang diubah:
 
 **GET /quiz**
 ---
-  Get uuid, kalimat bahasa inggris, bahasa indonesia, dan kalimat yang diacak.
+  Get uuid, kalimat bahasa inggris, bahasa indonesia, dan kalimat yang diacak. Setiap request, uuid dan sentence akan disimpan dalam dictionary question_data. 
+  Melihat question_data gunakan method ```GET``` di endpoint ```/questions```
 * **URL Params**  
   Required: ```language = [string]``` 'indonesia/inggris'
 * **Data Params**  
