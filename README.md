@@ -105,7 +105,7 @@ Supaya bisa run di vm ada yang beberapa code yang diubah:
   Menghapus data question berdasarkan id
 * **URL Params**  
   Required: ```question_id = [string]``` 
-* **Data Params**
+* **Data Params**  
   None
 * **Headers**  
   Content-Type: application/json  
