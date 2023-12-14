@@ -10,9 +10,10 @@ question_data = {}
 
 def parameter_check():
     try:
-        language = request.args.get('language')
+        data = request.get_json()
+        language = data.get('language')
         if language is None:
-            abort(400, description="Missing language parameter in request URL")
+            abort(400, description="Missing language parameter in request body")
         return language
     except Exception as e:
         abort(400, description=str(e))
