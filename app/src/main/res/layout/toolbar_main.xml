@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="385dp"
+    android:layout_height="266dp"
+    android:background="@drawable/bg_hijau"
+    android:layout_marginLeft="10dp"
+    android:padding="40dp"
+    android:layout_marginTop="90dp">
+
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <RelativeLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_margin="16dp">
+
+
+        </RelativeLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_alignParentBottom="true"
+            android:layout_marginStart="16dp"
+            android:layout_marginBottom="30dp"
+            android:orientation="vertical">
+
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="10dp"
+                android:layout_marginBottom="16dp"
+                android:text="@string/txmolla"
+                android:textColor="@android:color/white"
+                android:textSize="32sp"
+                android:fontFamily="@font/otomanopeeone_regular"/>
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/hello_im_molla"
+                android:textColor="@android:color/white"
+                android:textSize="13sp"
+                android:fontFamily="@font/poppins_bold" />
+
+
+        </LinearLayout>
+
+    </RelativeLayout>
+
+</FrameLayout>

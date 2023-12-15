@@ -1,0 +1,32 @@
+<resources>
+    <string name="app_name">Molla App</string>
+    <string name="next">Next</string>
+    <string name="start">Start</string>
+    <string name="text_intro_1">Selamat datang di Molla Temukan\n keseruan belajar bahasa Inggris\n bersama kami. Ayo mulai petualangan\n belajarmu sekarang!</string>
+    <string name="text_intro_2">Hai! Sambut kesempatan belajar bahasa\n Inggris yang seru di Molla Mari kita\n tingkatkan kemampuan bahasa Inggris kita bersama-sama. Ayo, belajar bareng!</string>
+    <string name="text_intro_3">Mari kita eksplorasi dunia bahasa\n Inggris bersama di sini. Yuk,\n bergabung sekarang!</string>
+    <string name="hello_im_molla">Learning English to Make the Good Student</string>
+    <string name="text_about">"The "Molla" (Mobile Learning English Application) is\n a mobile-based English language learning app that\n emerges as a solution to enhance English language\n skills worldwide. Skills worldwide."</string>
+    <string name="txmolla">Mobile Learning \nEnglish App</string>
+    <string name="txQuestion">Type your question here</string>
+    <string name="txssubmit">Click</string>
+    <string name="question">Question</string>
+    <string name="txresponse">Your Response</string>
+    <string name="copy_text">Copy Text</string>
+    <string name="take_picture">Take_picture</string>
+    <string name="copy_txt">Copy Text</string>
+    <string name="upload_image">Upload Image</string>
+    <string name="camera">Camera</string>
+    <string name="gallery">Gallery</string>
+    <string name="description">Description</string>
+    <string name="upload">Upload</string>
+    <string name="about">About</string>
+    <string name="our_tim">Our Tim</string>
+    <string name="muqoddam">Muqoddam Husni Wijaya\nMechine Learning</string>
+    <string name="destu">Destu Cikal Ramdan\nCloud Computing</string>
+    <string name="haidar">Haidar Bagir Alfahmi\nMobile Development</string>
+    <string name="adi">Adi Karawinata\nMechine Learning</string>
+    <string name="dewi">Dewi Nur Arifah\nCloud Computing</string>
+    <string name="muhamad_hafizh">Muhamad Hafizh \nMobile Development</string>
+    <string name="chisha">Azhura Chisha\nMechine Learning</string>
+</resources>

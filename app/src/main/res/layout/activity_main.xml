@@ -1,0 +1,98 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@drawable/bg_home"
+    android:orientation="vertical"
+    android:fitsSystemWindows="true"
+    tools:context=".ui.MainActivity">
+
+
+    <ImageView
+        android:id="@+id/logo_molla"
+        android:layout_width="50dp"
+        android:layout_height="50dp"
+        android:layout_alignParentStart="true"
+        android:layout_alignParentEnd="true"
+        android:layout_marginTop="20dp"
+        android:layout_marginStart="20dp"
+        android:layout_marginEnd="292dp"
+        android:src="@drawable/logo_molla_bulet" />
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Hello Im Molla"
+        android:fontFamily="@font/poppins_medium"
+        android:textColor="@color/black"
+        android:layout_marginStart="110dp"
+        android:layout_marginTop="30dp"/>
+
+    <include
+        android:id="@+id/toolbar"
+        layout="@layout/toolbar_main"/>
+
+    <ImageView
+        android:id="@+id/btn_alphabet"
+        android:layout_width="191dp"
+        android:layout_height="260dp"
+        android:layout_below="@id/toolbar"
+        android:layout_alignParentStart="true"
+        android:layout_alignParentEnd="true"
+        android:layout_alignParentBottom="true"
+        android:layout_marginStart="21dp"
+        android:layout_marginTop="20dp"
+        android:layout_marginEnd="199dp"
+        android:layout_marginBottom="95dp"
+        android:src="@drawable/btn_image_alphabet" />
+
+
+    <ImageView
+        android:id="@+id/btn_numbers"
+        android:layout_width="191dp"
+        android:layout_height="266dp"
+        android:layout_below="@id/toolbar"
+        android:layout_alignParentStart="true"
+        android:layout_alignParentEnd="true"
+        android:layout_alignParentBottom="true"
+        android:layout_marginStart="209dp"
+        android:layout_marginTop="17dp"
+        android:layout_marginEnd="11dp"
+        android:layout_marginBottom="92dp"
+        android:src="@drawable/btn_image_numbers" />
+
+    <com.getbase.floatingactionbutton.FloatingActionsMenu
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentBottom="true"
+            android:layout_alignParentRight="true"
+            app:fab_addButtonColorNormal="@color/koneng"
+            app:fab_colorPressed="@color/hejo">
+
+            <com.getbase.floatingactionbutton.FloatingActionButton
+                android:id="@+id/camera_add"
+                app:fab_title="frist"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                app:fab_icon="@drawable/ic_camera"
+                app:fab_colorNormal="@color/koneng"
+                app:fab_colorPressed="@color/hejo"/>
+
+            <com.getbase.floatingactionbutton.FloatingActionButton
+                android:id="@+id/aboutbtn"
+                app:fab_title="frist"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                app:fab_icon="@drawable/about"
+                app:fab_colorNormal="@color/koneng"
+                app:fab_colorPressed="@color/hejo"/>
+
+
+        </com.getbase.floatingactionbutton.FloatingActionsMenu>
+
+
+
+
+</RelativeLayout>
