@@ -6,11 +6,11 @@ from tensorflow.keras.preprocessing.text import Tokenizer
 
 tf.keras.mixed_precision.set_global_policy('float32')
 
-dataset_path = 'dataUji.tsv'
+dataset_path = '~/molla/dataUji.tsv'
 df = pd.read_csv(dataset_path, sep='\t', header=None, names=['num_eng', 'sent_eng', 'num_indo', 'sent_indo'])
 
 model_path = '/home/destucr/molla/tflite/model.tflite'
-interpreter = tf.lite.Interpreter(model_path = model_path)
+interpreter = tf.lite.Interpreter(model_path=model_path)
 interpreter.allocate_tensors()
 
 tokenizer_eng = Tokenizer()
@@ -29,7 +29,7 @@ def evaluate_user_input(user_input, original_sentence):
     user_input_lower = user_input.lower()
     original_sentence_lower = original_sentence.lower()
 
-    if user_input_lower ==  original_sentence_lower:
+    if user_input_lower == original_sentence_lower:
         print("Jawaban benar!")
         return True
     else:
@@ -85,7 +85,7 @@ while True:
     predicted_index = np.argmax(output_data)
     predicted_translation = tokenizer_indo.index_word.get(predicted_index, "Token tidak dikenali")
 
-    if evaluate_user_input(predicted_translation, original_sentence):
+    if evaluate_user_input(user_input.lower(), original_sentence.lower()):
         continue_or_exit = input("\nApakah Anda ingin melanjutkan? (y/n): ")
         if continue_or_exit.lower() != 'y':
             break
