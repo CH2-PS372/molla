@@ -1,0 +1,9 @@
+flask
+gunicorn
+tensorflow
+numpy
+pillow
+opencv-contrib-python
+pytesseract
+googletrans
+keras
