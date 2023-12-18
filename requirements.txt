@@ -5,5 +5,5 @@ numpy
 pillow
 opencv-contrib-python
 pytesseract
-googletrans
+googletrans==4.0.0rc1
 keras
