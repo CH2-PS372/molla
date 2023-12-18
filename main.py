@@ -10,7 +10,7 @@ from googletrans import Translator
 app = Flask(__name__)
 
 # Load the pre-trained model and tokenizer
-model = tf.keras.models.load_model(r'D:\Dewi\Api_mola\model.h5')
+model = tf.keras.models.load_model(r'./model.h5')
 tokenizer = tf.keras.preprocessing.text.Tokenizer()
 tokenizer.word_index = {'': 0}
 
@@ -34,7 +34,9 @@ def read_image_and_extract_text(image_path):
         return jsonify({"error": f"Unable to read the image - {image_path}"}), 400
 
     gray_image = cv2.cvtColor(image, cv2.COLOR_BGR2GRAY)
-    text = pytesseract.image_to_string(gray_image)
+    resized_image = cv2.resize(gray_image, None, fx=3, fy=3)
+
+    text = pytesseract.image_to_string(resized_image)
     cleaned_text = preprocess_text(text)
     return jsonify({"extracted_text": cleaned_text})
 
@@ -54,7 +56,7 @@ def process_image():
         return jsonify({"error": "No image file provided"}), 400
 
     image_file = request.files['image']
-    image_path = os.path.join(app.config['uploads'], image_file.filename)
+    image_path = os.path.join('./uploads', image_file.filename)
     image_file.save(image_path)
 
     return read_image_and_extract_text(image_path)
@@ -71,4 +73,4 @@ def translate_text():
 
 if __name__ == '__main__':
     app.config['uploads'] = r'uploads'
-    app.run(debug=True)
+    app.run(debug=True, port=2001)
