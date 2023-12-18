@@ -38,7 +38,7 @@ def read_image_and_extract_text(image_path):
 
     text = pytesseract.image_to_string(resized_image)
     cleaned_text = preprocess_text(text)
-    return jsonify({"extracted_text": cleaned_text})
+    return cleaned_text
 
 # Fungsi untuk terjemahan
 def translate_to_indonesian(text):
@@ -47,7 +47,7 @@ def translate_to_indonesian(text):
 
     translator = Translator()
     translated_text = translator.translate(text, dest='id').text
-    return jsonify({"translated_text": translated_text})
+    return translated_text
 
 # Endpoint untuk membaca gambar dan ekstraksi teks
 @app.route('/read_image', methods=['POST'])
@@ -58,8 +58,14 @@ def process_image():
     image_file = request.files['image']
     image_path = os.path.join('./uploads', image_file.filename)
     image_file.save(image_path)
+    extracted_text = read_image_and_extract_text(image_path)
+    text = translate_to_indonesian(extracted_text)
 
-    return read_image_and_extract_text(image_path)
+    response_data = {
+        "extracted_text" : extracted_text,
+        "translated_text" : text
+    }
+    return jsonify(response_data)
 
 # Endpoint untuk terjemahan
 @app.route('/translate', methods=['POST'])
