@@ -79,4 +79,4 @@ def translate_text():
 
 if __name__ == '__main__':
     app.config['uploads'] = r'uploads'
-    app.run(debug=True)
+    app.run(host='0.0.0.0', debug=True)
