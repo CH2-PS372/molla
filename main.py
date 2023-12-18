@@ -75,7 +75,12 @@ def translate_text():
         return jsonify({"error": "No text provided for translation"}), 400
 
     text = data['text']
-    return translate_to_indonesian(text)
+    translated_text = translate_to_indonesian(text)
+    response_data = {
+        "text" : text,
+        "translated_text" : translated_text
+    }
+    return jsonify(response_data)
 
 if __name__ == '__main__':
     app.config['uploads'] = r'uploads'
