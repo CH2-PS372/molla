@@ -1,4 +1,5 @@
-# Molla
+# Endpoints Quiz
+Berisi machine learning model, dataset dan Dockerfile. Deploy menggunakan Cloud Run, dan Flask untuk membangun http server
 
 ## **Notes**
 
