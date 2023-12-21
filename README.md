@@ -1,6 +1,6 @@
 ![Logo](https://storage.googleapis.com/molla-image-bucket/logo_molla_figma.png)
 # Molla
-Engaging mobile app for kids to learn English! Interactive quizzes, clear pronunciation tutorials, and handy image translation.
+Engaging mobile app for kids to learn English! Interactive quizzes, clear pronunciation tutorials.
 
 # Features
 - Alphabet pronounciation practice: Learn to confidently say each letter of the alphabet with audio examples
