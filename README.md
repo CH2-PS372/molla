@@ -8,7 +8,12 @@ Engaging mobile app for kids to learn English! Interactive quizzes, clear pronun
 - Random Sentence Quiz: Put your English skills to the test by ordering scrambled sentences and building strong grammar foundations.
 
 # App Preview
-[screenshots]
+![Imgur](https://i.imgur.com/XgGGuSg.png)
+![Imgur](https://i.imgur.com/NS3DM9v.png)
+![Imgur](https://i.imgur.com/ymCzfao.png)
+![Imgur](https://i.imgur.com/WyOlxrX.png)
+![Imgur](https://i.imgur.com/P1nBTTy.png)
+![Imgur](https://i.imgur.com/nt8CPd3.png)
 
 # Team
 |No|Bangkit ID   | Name                       | Path |
