@@ -6,7 +6,6 @@ Engaging mobile app for kids to learn English! Interactive quizzes, clear pronun
 - Alphabet pronounciation practice: Learn to confidently say each letter of the alphabet with audio examples
 - Number pronounciation exercise: Improve your number skills with clear audio
 - Random Sentence Quiz: Put your English skills to the test by ordering scrambled sentences and building strong grammar foundations.
-- Image translation: Point your camera at objects or signs and instantly see their translations right on your screen
 
 # App Preview
 [screenshots]
