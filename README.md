@@ -1,3 +1,12 @@
+## Endpoint To Extract Image
+# How to Deploy to Cloud Run
+- Copy this branch into your local machine or cloud console \
+`git clone --single-branch --branch dev-cc-dewi https://github.com/CH2-PS372/molla.git `
+
+- Set Up Cloud SDK or You can use cloud console to build and deploy \
+  `gcloud builds submit --tag gcr.io/<project_id>/<function_name>` \
+  `gcloud run deploy --image gcr.io/<project_id>/<function_name> --platform managed`
+
 ## **API Contract**
 ### **Read Image**
 
